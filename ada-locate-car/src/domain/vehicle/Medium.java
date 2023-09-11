@@ -11,7 +11,7 @@ public class Medium extends Vehicle {
     @Override
     public String toString() {
         return "Medium{" +
-                super.toString() +
-                "}";
+            super.toString() +
+            "}";
     }
 }

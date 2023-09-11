@@ -11,7 +11,7 @@ public class Small extends Vehicle {
     @Override
     public String toString() {
         return "Small{" +
-                super.toString() +
-                "}";
+            super.toString() +
+            "}";
     }
 }
