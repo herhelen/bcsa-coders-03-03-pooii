@@ -33,8 +33,16 @@ public abstract class Vehicle {
         return this.maker;
     }
 
+    public void setMaker(String maker) {
+        this.maker = maker;
+    }
+
     public String getColor() {
         return this.color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     @Override
