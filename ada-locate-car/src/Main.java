@@ -6,6 +6,8 @@ import domain.vehicle.Medium;
 import domain.vehicle.SUV;
 import domain.vehicle.Small;
 import domain.vehicle.Vehicle;
+import repository.VehicleRepositoryInMemory;
+import service.VehicleService;
 
 import java.time.LocalDateTime;
 
@@ -13,8 +15,13 @@ import java.time.LocalDateTime;
 public class Main {
     public static void main(String[] args) {
 
-        Vehicle teste = new Medium(1, "AAA1234", "Nissan", "Azul");
-        System.out.println(teste);
+        VehicleService vs = new VehicleService(new VehicleRepositoryInMemory());
+        vs.createSUV("AAA123", "SUV", "Azul");
+        vs.createMedium("AAA124", "Medium", "Azul");
+        vs.createSmall("AAA125", "Small", "Azul");
+
+        System.out.println(vs.listAll());
+
 
         Client teste2 = new Person(1, "CPF", "Nome 1");
         System.out.println(teste2);
