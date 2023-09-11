@@ -8,6 +8,7 @@ import java.util.List;
 
 public class VehicleRepositoryInMemory implements Repository<Vehicle> {
 
+    private static int COUNTER_VEHICLE_ID;
     private static List<Vehicle> vehicles;
 
     public VehicleRepositoryInMemory() {
@@ -34,6 +35,7 @@ public class VehicleRepositoryInMemory implements Repository<Vehicle> {
 
     @Override
     public Vehicle create(Vehicle object) {
+        object.setId(++this.COUNTER_VEHICLE_ID);
         this.vehicles.add(object);
         return object;
     }

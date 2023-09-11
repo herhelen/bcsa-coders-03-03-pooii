@@ -17,8 +17,19 @@ public abstract class Vehicle {
         this.color = color;
     }
 
+    public Vehicle(String licensePlate, BigDecimal dailyRate, String maker, String color) {
+        this.licensePlate = licensePlate;
+        this.dailyRate = dailyRate;
+        this.maker = maker;
+        this.color = color;
+    }
+
     public Integer getId() {
         return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getLicensePlate() {

@@ -8,6 +8,10 @@ public class Medium extends Vehicle {
         super(id, licensePlate, new BigDecimal(150.0), maker, color);
     }
 
+    public Medium(String licensePlate, String maker, String color) {
+        super(licensePlate, new BigDecimal(150.0), maker, color);
+    }
+
     @Override
     public String toString() {
         return "Medium{" +

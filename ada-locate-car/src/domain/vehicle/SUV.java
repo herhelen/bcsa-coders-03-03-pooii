@@ -8,6 +8,10 @@ public class SUV extends Vehicle {
         super(id, licensePlate, new BigDecimal(200.0), maker, color);
     }
 
+    public SUV(String licensePlate, String maker, String color) {
+        super(licensePlate, new BigDecimal(200.0), maker, color);
+    }
+
     @Override
     public String toString() {
         return "SUV{" +
