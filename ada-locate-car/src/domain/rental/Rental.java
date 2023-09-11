@@ -8,6 +8,8 @@ public class Rental {
     private Integer idClient;
     private LocalDateTime startDatetime;
     private LocalDateTime endDatetime;
+    private String startPlace;
+    private String endPlace;
 
     public Rental(Integer id, Integer idVehicle, Integer idClient) {
         this.id = id;
@@ -43,6 +45,22 @@ public class Rental {
         this.endDatetime = endDatetime;
     }
 
+    public String getStartPlace() {
+        return startPlace;
+    }
+
+    public void setStartPlace(String startPlace) {
+        this.startPlace = startPlace;
+    }
+
+    public String getEndPlace() {
+        return endPlace;
+    }
+
+    public void setEndPlace(String endPlace) {
+        this.endPlace = endPlace;
+    }
+
     @Override
     public String toString() {
         return "Rental{" +
@@ -51,6 +69,8 @@ public class Rental {
                 ", idClient=" + this.idClient +
                 ", startDatetime=" + this.startDatetime +
                 ", endDatetime=" + this.endDatetime +
+                ", startPlace=" + this.startPlace +
+                ", endPlace=" + this.endPlace +
                 '}';
     }
 }
