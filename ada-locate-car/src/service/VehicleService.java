@@ -1,9 +1,7 @@
 package service;
 
-import domain.vehicle.Medium;
-import domain.vehicle.SUV;
-import domain.vehicle.Small;
 import domain.vehicle.Vehicle;
+import domain.vehicle.VehicleType;
 import repository.Repository;
 
 import java.util.List;
@@ -17,29 +15,9 @@ public class VehicleService {
         this.vehicleRepository = vehicleRepository;
     }
 
-    public int createSmall(String licensePlate, String maker, String year) {
+    public int create(VehicleType type, String licensePlate, String maker, String year) {
         if(this.isUniqueLicensePlate(licensePlate)) {
-            Vehicle car = new Small(licensePlate, maker, year);
-            this.vehicleRepository.create(car);
-
-            return car.getId();
-        }
-        return -1; //TODO: Exception?
-    }
-
-    public int createMedium(String licensePlate, String maker, String year) {
-        if(this.isUniqueLicensePlate(licensePlate)) {
-            Vehicle car = new Medium(licensePlate, maker, year);
-            this.vehicleRepository.create(car);
-
-            return car.getId();
-        }
-        return -1; //TODO: Exception?
-    }
-
-    public int createSUV(String licensePlate, String maker, String year) {
-        if(this.isUniqueLicensePlate(licensePlate)) {
-            Vehicle car = new SUV(licensePlate, maker, year);
+            Vehicle car = new Vehicle(type, licensePlate, maker, year);
             this.vehicleRepository.create(car);
 
             return car.getId();

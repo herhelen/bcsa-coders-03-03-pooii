@@ -11,14 +11,17 @@ public class Rental {
     private String startPlace;
     private String endPlace;
 
-    public Rental(Integer id, Integer idVehicle, Integer idCustomer) {
-        this.id = id;
+    public Rental(Integer idVehicle, Integer idCustomer) {
         this.idVehicle = idVehicle;
         this.idCustomer = idCustomer;
     }
 
     public Integer getId() {
         return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getIdVehicle() {
@@ -66,11 +69,11 @@ public class Rental {
         return "Rental{" +
                 "id=" + this.id +
                 ", idVehicle=" + this.idVehicle +
-                ", idClient=" + this.idCustomer +
-                ", startDatetime=" + this.startDateTime +
-                ", endDatetime=" + this.endDateTime +
+                ", idCustomer=" + this.idCustomer +
+                ", startDateTime=" + this.startDateTime +
+                ", endDateTime=" + this.endDateTime +
                 ", startPlace=" + this.startPlace +
                 ", endPlace=" + this.endPlace +
-                '}';
+                "}";
     }
 }

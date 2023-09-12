@@ -1,47 +1,37 @@
 package domain.vehicle;
 
-import java.math.BigDecimal;
-
-public abstract class Vehicle {
+public class Vehicle {
     private Integer id;
+    private VehicleType type;
     private String licensePlate;
-    private BigDecimal dailyRate;
     private String maker; //TODO: enum?
     private String year;
 
-    public Vehicle(Integer id, String licensePlate, BigDecimal dailyRate, String maker, String year) {
-        this.id = id;
+    public Vehicle(VehicleType type, String licensePlate, String maker, String year) {
+        this.type = type;
         this.licensePlate = licensePlate;
-        this.dailyRate = dailyRate;
-        this.maker = maker;
-        this.year = year;
-    }
-
-    public Vehicle(String licensePlate, BigDecimal dailyRate, String maker, String year) {
-        this.licensePlate = licensePlate;
-        this.dailyRate = dailyRate;
         this.maker = maker;
         this.year = year;
     }
 
     public Integer getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getLicensePlate() {
-        return this.licensePlate;
+    public VehicleType getType() {
+        return type;
     }
 
-    public BigDecimal getDailyRate() {
-        return this.dailyRate;
+    public String getLicensePlate() {
+        return licensePlate;
     }
 
     public String getMaker() {
-        return this.maker;
+        return maker;
     }
 
     public void setMaker(String maker) {
@@ -49,7 +39,7 @@ public abstract class Vehicle {
     }
 
     public String getYear() {
-        return this.year;
+        return year;
     }
 
     public void setYear(String year) {
@@ -60,8 +50,8 @@ public abstract class Vehicle {
     public String toString() {
         return "Vehicle{" +
                 "id=" + this.id +
+                ", type=" + this.type +
                 ", licensePlate='" + this.licensePlate + '\'' +
-                ", dailyRate=" + String.format("%.2f", this.dailyRate) +
                 ", maker='" + this.maker + '\'' +
                 ", year='" + this.year + '\'' +
                 "}";

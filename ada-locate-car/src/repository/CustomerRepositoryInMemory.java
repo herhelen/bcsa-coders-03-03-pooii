@@ -8,19 +8,20 @@ import java.util.List;
 
 public class CustomerRepositoryInMemory implements Repository<Customer> {
 
-    private static List<Customer> rentals;
+    private static int COUNTER_CUSTOMER_ID;
+    private static List<Customer> customers;
 
     public CustomerRepositoryInMemory() {
-        this.rentals = new ArrayList<>();
+        this.customers = new ArrayList<>();
     }
 
     @Override
     public Customer findOne(int id) {
-        for(Object obj : this.rentals) {
+        for(Object obj : this.customers) {
             if(obj instanceof Customer) {
-                Customer rental = (Customer) obj;
-                if(rental.getId() == id) {
-                    return rental;
+                Customer customer = (Customer) obj;
+                if(customer.getId() == id) {
+                    return customer;
                 }
             }
         }
@@ -29,12 +30,13 @@ public class CustomerRepositoryInMemory implements Repository<Customer> {
 
     @Override
     public List<Customer> findAll() {
-        return Collections.unmodifiableList(this.rentals);
+        return Collections.unmodifiableList(this.customers);
     }
 
     @Override
     public Customer create(Customer object) {
-        this.rentals.add(object);
+        object.setId(++this.COUNTER_CUSTOMER_ID);
+        this.customers.add(object);
         return object;
     }
 

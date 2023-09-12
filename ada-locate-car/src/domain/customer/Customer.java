@@ -1,22 +1,23 @@
 package domain.customer;
 
-public abstract class Customer {
+public class Customer {
     private Integer id;
+    private CustomerType type;
     private String document;
     private String name;
-    private Integer minDaysForDiscount;
-    private Double discountPercentage;
 
-    public Customer(Integer id, String document, String name, Integer minDaysForDiscount, Double discountPercentage) {
-        this.id = id;
+    public Customer(CustomerType type, String document, String name) {
+        this.type = type;
         this.document = document;
         this.name = name;
-        this.minDaysForDiscount = minDaysForDiscount;
-        this.discountPercentage = discountPercentage;
     }
 
     public Integer getId() {
         return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getDocument() {
@@ -27,22 +28,21 @@ public abstract class Customer {
         return this.name;
     }
 
-    public Integer getMinDaysForDiscount() {
-        return this.minDaysForDiscount;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Double getDiscountPercentage() {
-        return this.discountPercentage;
+    public CustomerType getType() {
+        return this.type;
     }
 
     @Override
     public String toString() {
-        return "Client{" +
+        return "Customer{" +
                 "id=" + this.id +
                 ", document='" + this.document + '\'' +
                 ", name='" + this.name + '\'' +
-                ", minDaysForDiscount=" + this.minDaysForDiscount +
-                ", discountPercentage=" + String.format("%.2f", this.discountPercentage) +
-                '}';
+                ", type=" + this.type +
+                "}";
     }
 }

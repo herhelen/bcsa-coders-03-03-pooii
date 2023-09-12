@@ -8,6 +8,7 @@ import java.util.List;
 
 public class RentalRepositoryInMemory implements Repository<Rental> {
 
+    private static int COUNTER_RENTAL_ID;
     private static List<Rental> rentals;
 
     public RentalRepositoryInMemory() {
@@ -34,6 +35,7 @@ public class RentalRepositoryInMemory implements Repository<Rental> {
 
     @Override
     public Rental create(Rental object) {
+        object.setId(++this.COUNTER_RENTAL_ID);
         this.rentals.add(object);
         return object;
     }
