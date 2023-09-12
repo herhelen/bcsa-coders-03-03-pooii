@@ -22,6 +22,9 @@ public class Main {
 
         System.out.println(vs.listAll());
 
+        System.out.println(vs.findByPartialLicensePlate("AAA"));
+
+        System.out.println(vs.findByPartialLicensePlate("23"));
 
         Client teste2 = new Person(1, "CPF", "Nome 1");
         System.out.println(teste2);

@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 
 public class VehicleService {
 
-    private static int COUNTER_MOVIE_ID;
     private Repository<Vehicle> vehicleRepository;
 
     public VehicleService(Repository<Vehicle> vehicleRepository) {
@@ -50,6 +49,14 @@ public class VehicleService {
 
     public List<Vehicle> listAll() {
         return this.vehicleRepository.findAll();
+    }
+
+    public List<Vehicle> findByPartialLicensePlate(String partialLicensePlate) {
+        List temp = this.listAll()
+                .stream()
+                .filter(element -> element.getLicensePlate().toLowerCase().contains(partialLicensePlate.toLowerCase()))
+                .collect(Collectors.toList());
+        return temp;
     }
 
     private boolean isUniqueLicensePlate(String licensePlate) {
