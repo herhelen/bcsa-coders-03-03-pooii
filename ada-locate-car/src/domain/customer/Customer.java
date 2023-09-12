@@ -1,7 +1,7 @@
 package domain.customer;
 
 public class Customer {
-    private Integer id;
+    private Integer id; // TODO: Integer ou int?
     private CustomerType type;
     private String document;
     private String name;
@@ -40,8 +40,8 @@ public class Customer {
     public String toString() {
         return "Customer{" +
                 "id=" + this.id +
-                ", document='" + this.document + '\'' +
-                ", name='" + this.name + '\'' +
+                ", document='" + this.document + "'" +
+                ", name='" + this.name + "'" +
                 ", type=" + this.type +
                 "}";
     }

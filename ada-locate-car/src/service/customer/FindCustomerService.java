@@ -1,11 +1,9 @@
 package service.customer;
 
 import domain.customer.Customer;
-import domain.vehicle.Vehicle;
 import repository.Repository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class FindCustomerService {
 

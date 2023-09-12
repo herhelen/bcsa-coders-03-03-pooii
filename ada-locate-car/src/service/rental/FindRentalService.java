@@ -18,11 +18,11 @@ public class FindRentalService {
     }
 
     public List<Rental> findByCustomer(Integer idCustomer, boolean isReturned) {
-        return this.rentalRepository.findAll();
+        return this.rentalRepository.findAll(); // TODO:?
     }
 
     public List<Rental> findByVehicle(Integer idVehicle, boolean isReturned) {
-        return this.rentalRepository.findAll();
+        return this.rentalRepository.findAll(); // TODO:?
     }
 
     public Rental findById(Integer id) {

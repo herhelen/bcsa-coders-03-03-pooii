@@ -30,7 +30,7 @@ public enum CustomerType {
     @Override
     public String toString() {
         return "CustomerType{" +
-                "type='" + this.type + '\'' +
+                "type='" + this.type + "'" +
                 ", minDaysForDiscount=" + this.minDaysForDiscount +
                 ", discountPercentage=" + String.format("%.2f", this.discountPercentage) +
                 "}";

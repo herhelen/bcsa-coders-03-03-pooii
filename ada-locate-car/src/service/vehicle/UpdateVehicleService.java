@@ -3,7 +3,6 @@ package service.vehicle;
 import domain.vehicle.Vehicle;
 import repository.Repository;
 
-
 public class UpdateVehicleService {
 
     private final Repository<Vehicle> vehicleRepository;

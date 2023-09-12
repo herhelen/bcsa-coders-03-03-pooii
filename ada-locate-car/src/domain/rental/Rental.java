@@ -79,8 +79,8 @@ public class Rental {
                 ", idCustomer=" + this.idCustomer +
                 ", startDateTime=" + this.startDateTime +
                 ", endDateTime=" + this.endDateTime +
-                ", startPlace=" + this.startPlace +
-                ", endPlace=" + this.endPlace +
+                ", startPlace='" + this.startPlace + "'" +
+                ", endPlace='" + this.endPlace + "'" +
                 "}";
     }
 }

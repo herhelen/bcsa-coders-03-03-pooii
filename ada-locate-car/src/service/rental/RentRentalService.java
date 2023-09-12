@@ -18,6 +18,7 @@ public class RentRentalService {
 
     public Rental rent(Integer idVehicle, Integer idCustomer, LocalDateTime startDateTime, String startPlace) {
         // TODO: Verificar se o veiculo ta disponivel?
+        // TODO: Validar startPlace?
         Rental rental = new Rental(idVehicle, idCustomer, startDateTime, startPlace);
         this.updateVehicleService.update(idVehicle, false);
 
