@@ -42,7 +42,9 @@ public class CustomerRepositoryInMemory implements Repository<Customer> {
 
     @Override
     public Customer update(Customer object) {
-        throw new RuntimeException("Ainda não implementado");
-//        return null;
+        Customer old = this.findOne(object.getId());
+        this.customers.remove(old);
+        this.customers.add(object);
+        return object;
     }
 }
