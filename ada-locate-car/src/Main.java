@@ -1,9 +1,12 @@
 import domain.customer.Customer;
 import domain.customer.CustomerType;
 import domain.rental.Rental;
+import domain.vehicle.Vehicle;
 import domain.vehicle.VehicleType;
+import repository.Repository;
 import repository.VehicleRepositoryInMemory;
-import service.VehicleService;
+import service.vehicle.FindVehicleService;
+import service.vehicle.RegisterVehicleService;
 
 import java.time.LocalDateTime;
 
@@ -11,16 +14,21 @@ import java.time.LocalDateTime;
 public class Main {
     public static void main(String[] args) {
 
-        VehicleService vs = new VehicleService(new VehicleRepositoryInMemory());
-        vs.create(VehicleType.SUV, "AAA123", "SUV", "2020");
-        vs.create(VehicleType.MEDIUM,"AAA124", "Medium", "2023");
-        vs.create(VehicleType.SMALL,"AAA125", "Small", "2010");
+        Repository<Vehicle> vr = new VehicleRepositoryInMemory();
 
-        System.out.println(vs.listAll());
+        FindVehicleService fvs = new FindVehicleService(vr);
+        RegisterVehicleService rvs = new RegisterVehicleService(vr, fvs);
 
-        System.out.println(vs.findByPartialLicensePlate("AAA"));
+        rvs.register(VehicleType.SUV, "AAA123", "SUV", "2020");
+        rvs.register(VehicleType.MEDIUM,"AAA124", "Medium", "2023");
+        rvs.register(VehicleType.SMALL,"AAA125", "Small", "2010");
 
-        System.out.println(vs.findByPartialLicensePlate("23"));
+        System.out.println(fvs.findAll());
+        System.out.println(fvs.findByPartialLicensePlate("AAA"));
+        System.out.println(fvs.findByPartialLicensePlate("23"));
+        System.out.println(fvs.findById(1));
+        System.out.println(fvs.findById(5));
+
 
         Customer teste2 = new Customer(CustomerType.PERSON, "CPF", "Nome 1");
         System.out.println(teste2);
