@@ -41,12 +41,6 @@ public class VehicleRepositoryInMemory implements Repository<Vehicle> {
     }
 
     @Override
-    public void delete(Vehicle object) {
-        throw new RuntimeException("Ainda não implementado");
-        // TODO
-    }
-
-    @Override
     public Vehicle update(Vehicle object) {
         throw new RuntimeException("Ainda não implementado");
 //        return null;

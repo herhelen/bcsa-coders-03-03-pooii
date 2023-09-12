@@ -41,12 +41,6 @@ public class RentalRepositoryInMemory implements Repository<Rental> {
     }
 
     @Override
-    public void delete(Rental object) {
-        throw new RuntimeException("Ainda não implementado");
-        // TODO
-    }
-
-    @Override
     public Rental update(Rental object) {
         throw new RuntimeException("Ainda não implementado");
 //        return null;

@@ -41,12 +41,6 @@ public class CustomerRepositoryInMemory implements Repository<Customer> {
     }
 
     @Override
-    public void delete(Customer object) {
-        throw new RuntimeException("Ainda não implementado");
-        // TODO
-    }
-
-    @Override
     public Customer update(Customer object) {
         throw new RuntimeException("Ainda não implementado");
 //        return null;
