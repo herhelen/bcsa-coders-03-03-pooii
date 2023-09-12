@@ -3,8 +3,11 @@ import domain.customer.CustomerType;
 import domain.rental.Rental;
 import domain.vehicle.Vehicle;
 import domain.vehicle.VehicleType;
+import repository.CustomerRepositoryInMemory;
 import repository.Repository;
 import repository.VehicleRepositoryInMemory;
+import service.customer.FindCustomerService;
+import service.customer.RegisterCustomerService;
 import service.vehicle.FindVehicleService;
 import service.vehicle.RegisterVehicleService;
 import service.vehicle.UpdateVehicleService;
@@ -34,8 +37,17 @@ public class Main {
         System.out.println(uvs.update(1, "Nissan", ""));
         System.out.println(fvs.findAll());
 
-        Customer teste2 = new Customer(CustomerType.PERSON, "CPF", "Nome 1");
-        System.out.println(teste2);
+        Repository<Customer> cr = new CustomerRepositoryInMemory();
+
+        FindCustomerService fcs = new FindCustomerService(cr);
+        RegisterCustomerService rcs = new RegisterCustomerService(cr, fcs);
+
+        rcs.register(CustomerType.PERSON, "CPF123", "Nome 1");
+        rcs.register(CustomerType.COMPANY, "CNPJ123", "Nome 2");
+
+        System.out.println(fcs.findAll());
+        System.out.println(fcs.findById(1));
+        System.out.println(fcs.findById(5));
 
         Rental rent = new Rental(1, 1);
         rent.setStartDateTime(LocalDateTime.of(2023, 9, 11, 14, 44, 45));
