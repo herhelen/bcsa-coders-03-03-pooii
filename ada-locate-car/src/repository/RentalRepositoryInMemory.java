@@ -42,7 +42,9 @@ public class RentalRepositoryInMemory implements Repository<Rental> {
 
     @Override
     public Rental update(Rental object) {
-        throw new RuntimeException("Ainda não implementado");
-//        return null;
+        Rental old = this.findOne(object.getId());
+        this.rentals.remove(old);
+        this.rentals.add(object);
+        return object;
     }
 }

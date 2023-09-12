@@ -12,6 +12,7 @@ import service.customer.RegisterCustomerService;
 import service.customer.UpdateCustomerService;
 import service.rental.FindRentalService;
 import service.rental.RentRentalService;
+import service.rental.ReturnRentalService;
 import service.vehicle.FindVehicleService;
 import service.vehicle.RegisterVehicleService;
 import service.vehicle.UpdateVehicleService;
@@ -61,14 +62,17 @@ public class Main {
 
         FindRentalService frs = new FindRentalService(rr);
         RentRentalService rrs = new RentRentalService(rr, uvs);
+        ReturnRentalService returnRentalService = new ReturnRentalService(rr, uvs);
 
         rrs.rent(1, 1,
                 LocalDateTime.of(2023, 9, 11, 14, 44, 45), "Loja 1");
 
         System.out.println(frs.findAll());
 
-//        rent.setEndDateTime(LocalDateTime.of(2023, 9, 12, 14, 44, 45));
-//        rent.setEndPlace("Loja 2");
-//        System.out.println(rent);
+        returnRentalService.returnVehicle(1,
+                LocalDateTime.of(2023, 9, 12, 14, 44, 45), "Loja 2");
+
+        System.out.println(frs.findAll());
+
     }
 }
