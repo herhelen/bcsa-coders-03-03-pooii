@@ -42,7 +42,9 @@ public class VehicleRepositoryInMemory implements Repository<Vehicle> {
 
     @Override
     public Vehicle update(Vehicle object) {
-        throw new RuntimeException("Ainda não implementado");
-//        return null;
+        Vehicle old = this.findOne(object.getId());
+        this.vehicles.remove(old);
+        this.vehicles.add(object);
+        return object;
     }
 }

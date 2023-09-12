@@ -7,6 +7,7 @@ import repository.Repository;
 import repository.VehicleRepositoryInMemory;
 import service.vehicle.FindVehicleService;
 import service.vehicle.RegisterVehicleService;
+import service.vehicle.UpdateVehicleService;
 
 import java.time.LocalDateTime;
 
@@ -18,6 +19,7 @@ public class Main {
 
         FindVehicleService fvs = new FindVehicleService(vr);
         RegisterVehicleService rvs = new RegisterVehicleService(vr, fvs);
+        UpdateVehicleService uvs = new UpdateVehicleService(vr, fvs);
 
         rvs.register(VehicleType.SUV, "AAA123", "SUV", "2020");
         rvs.register(VehicleType.MEDIUM,"AAA124", "Medium", "2023");
@@ -29,6 +31,8 @@ public class Main {
         System.out.println(fvs.findById(1));
         System.out.println(fvs.findById(5));
 
+        System.out.println(uvs.update(1, "Nissan", ""));
+        System.out.println(fvs.findAll());
 
         Customer teste2 = new Customer(CustomerType.PERSON, "CPF", "Nome 1");
         System.out.println(teste2);
