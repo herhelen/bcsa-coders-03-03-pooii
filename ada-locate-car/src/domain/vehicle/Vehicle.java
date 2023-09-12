@@ -7,21 +7,21 @@ public abstract class Vehicle {
     private String licensePlate;
     private BigDecimal dailyRate;
     private String maker; //TODO: enum?
-    private String color;
+    private String year;
 
-    public Vehicle(Integer id, String licensePlate, BigDecimal dailyRate, String maker, String color) {
+    public Vehicle(Integer id, String licensePlate, BigDecimal dailyRate, String maker, String year) {
         this.id = id;
         this.licensePlate = licensePlate;
         this.dailyRate = dailyRate;
         this.maker = maker;
-        this.color = color;
+        this.year = year;
     }
 
-    public Vehicle(String licensePlate, BigDecimal dailyRate, String maker, String color) {
+    public Vehicle(String licensePlate, BigDecimal dailyRate, String maker, String year) {
         this.licensePlate = licensePlate;
         this.dailyRate = dailyRate;
         this.maker = maker;
-        this.color = color;
+        this.year = year;
     }
 
     public Integer getId() {
@@ -48,12 +48,12 @@ public abstract class Vehicle {
         this.maker = maker;
     }
 
-    public String getColor() {
-        return this.color;
+    public String getYear() {
+        return this.year;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setYear(String year) {
+        this.year = year;
     }
 
     @Override
@@ -63,7 +63,7 @@ public abstract class Vehicle {
                 ", licensePlate='" + this.licensePlate + '\'' +
                 ", dailyRate=" + String.format("%.2f", this.dailyRate) +
                 ", maker='" + this.maker + '\'' +
-                ", color='" + this.color + '\'' +
+                ", year='" + this.year + '\'' +
                 "}";
     }
 }

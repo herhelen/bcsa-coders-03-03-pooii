@@ -1,13 +1,13 @@
-package domain.client;
+package domain.customer;
 
-public abstract class Client {
+public abstract class Customer {
     private Integer id;
     private String document;
     private String name;
     private Integer minDaysForDiscount;
     private Double discountPercentage;
 
-    public Client(Integer id, String document, String name, Integer minDaysForDiscount, Double discountPercentage) {
+    public Customer(Integer id, String document, String name, Integer minDaysForDiscount, Double discountPercentage) {
         this.id = id;
         this.document = document;
         this.name = name;

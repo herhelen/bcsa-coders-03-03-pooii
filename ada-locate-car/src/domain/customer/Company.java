@@ -1,6 +1,6 @@
-package domain.client;
+package domain.customer;
 
-public class Company extends Client {
+public class Company extends Customer {
 
     public Company(Integer id, String document, String name) {
         super(id, document, name, 3, 0.1);

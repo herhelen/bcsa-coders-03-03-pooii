@@ -1,24 +1,24 @@
 package repository;
 
-import domain.client.Client;
+import domain.customer.Customer;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ClientRepositoryInMemory implements Repository<Client> {
+public class CustomerRepositoryInMemory implements Repository<Customer> {
 
-    private static List<Client> rentals;
+    private static List<Customer> rentals;
 
-    public ClientRepositoryInMemory() {
+    public CustomerRepositoryInMemory() {
         this.rentals = new ArrayList<>();
     }
 
     @Override
-    public Client findOne(int id) {
+    public Customer findOne(int id) {
         for(Object obj : this.rentals) {
-            if(obj instanceof Client) {
-                Client rental = (Client) obj;
+            if(obj instanceof Customer) {
+                Customer rental = (Customer) obj;
                 if(rental.getId() == id) {
                     return rental;
                 }
@@ -28,24 +28,24 @@ public class ClientRepositoryInMemory implements Repository<Client> {
     }
 
     @Override
-    public List<Client> findAll() {
+    public List<Customer> findAll() {
         return Collections.unmodifiableList(this.rentals);
     }
 
     @Override
-    public Client create(Client object) {
+    public Customer create(Customer object) {
         this.rentals.add(object);
         return object;
     }
 
     @Override
-    public void delete(Client object) {
+    public void delete(Customer object) {
         throw new RuntimeException("Ainda não implementado");
         // TODO
     }
 
     @Override
-    public Client update(Client object) {
+    public Customer update(Customer object) {
         throw new RuntimeException("Ainda não implementado");
 //        return null;
     }

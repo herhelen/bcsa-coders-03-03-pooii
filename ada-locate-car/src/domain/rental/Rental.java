@@ -5,16 +5,16 @@ import java.time.LocalDateTime;
 public class Rental {
     private Integer id;
     private Integer idVehicle;
-    private Integer idClient;
-    private LocalDateTime startDatetime;
-    private LocalDateTime endDatetime;
+    private Integer idCustomer;
+    private LocalDateTime startDateTime;
+    private LocalDateTime endDateTime;
     private String startPlace;
     private String endPlace;
 
-    public Rental(Integer id, Integer idVehicle, Integer idClient) {
+    public Rental(Integer id, Integer idVehicle, Integer idCustomer) {
         this.id = id;
         this.idVehicle = idVehicle;
-        this.idClient = idClient;
+        this.idCustomer = idCustomer;
     }
 
     public Integer getId() {
@@ -25,24 +25,24 @@ public class Rental {
         return this.idVehicle;
     }
 
-    public Integer getIdClient() {
-        return this.idClient;
+    public Integer getIdCustomer() {
+        return this.idCustomer;
     }
 
-    public LocalDateTime getStartDatetime() {
-        return this.startDatetime;
+    public LocalDateTime getStartDateTime() {
+        return this.startDateTime;
     }
 
-    public void setStartDatetime(LocalDateTime startDatetime) {
-        this.startDatetime = startDatetime;
+    public void setStartDateTime(LocalDateTime startDateTime) {
+        this.startDateTime = startDateTime;
     }
 
-    public LocalDateTime getEndDatetime() {
-        return this.endDatetime;
+    public LocalDateTime getEndDateTime() {
+        return this.endDateTime;
     }
 
-    public void setEndDatetime(LocalDateTime endDatetime) {
-        this.endDatetime = endDatetime;
+    public void setEndDateTime(LocalDateTime endDateTime) {
+        this.endDateTime = endDateTime;
     }
 
     public String getStartPlace() {
@@ -66,9 +66,9 @@ public class Rental {
         return "Rental{" +
                 "id=" + this.id +
                 ", idVehicle=" + this.idVehicle +
-                ", idClient=" + this.idClient +
-                ", startDatetime=" + this.startDatetime +
-                ", endDatetime=" + this.endDatetime +
+                ", idClient=" + this.idCustomer +
+                ", startDatetime=" + this.startDateTime +
+                ", endDatetime=" + this.endDateTime +
                 ", startPlace=" + this.startPlace +
                 ", endPlace=" + this.endPlace +
                 '}';

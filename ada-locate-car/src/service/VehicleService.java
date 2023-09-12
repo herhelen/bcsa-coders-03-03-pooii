@@ -17,9 +17,9 @@ public class VehicleService {
         this.vehicleRepository = vehicleRepository;
     }
 
-    public int createSmall(String licensePlate, String maker, String color) {
+    public int createSmall(String licensePlate, String maker, String year) {
         if(this.isUniqueLicensePlate(licensePlate)) {
-            Vehicle car = new Small(licensePlate, maker, color);
+            Vehicle car = new Small(licensePlate, maker, year);
             this.vehicleRepository.create(car);
 
             return car.getId();
@@ -27,9 +27,9 @@ public class VehicleService {
         return -1; //TODO: Exception?
     }
 
-    public int createMedium(String licensePlate, String maker, String color) {
+    public int createMedium(String licensePlate, String maker, String year) {
         if(this.isUniqueLicensePlate(licensePlate)) {
-            Vehicle car = new Medium(licensePlate, maker, color);
+            Vehicle car = new Medium(licensePlate, maker, year);
             this.vehicleRepository.create(car);
 
             return car.getId();
@@ -37,9 +37,9 @@ public class VehicleService {
         return -1; //TODO: Exception?
     }
 
-    public int createSUV(String licensePlate, String maker, String color) {
+    public int createSUV(String licensePlate, String maker, String year) {
         if(this.isUniqueLicensePlate(licensePlate)) {
-            Vehicle car = new SUV(licensePlate, maker, color);
+            Vehicle car = new SUV(licensePlate, maker, year);
             this.vehicleRepository.create(car);
 
             return car.getId();
