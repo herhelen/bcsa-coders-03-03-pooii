@@ -10,6 +10,7 @@ import repository.VehicleRepositoryInMemory;
 import service.customer.FindCustomerService;
 import service.customer.RegisterCustomerService;
 import service.customer.UpdateCustomerService;
+import service.rental.CalculateRentalService;
 import service.rental.FindRentalService;
 import service.rental.RentRentalService;
 import service.rental.ReturnRentalService;
@@ -17,6 +18,7 @@ import service.vehicle.FindVehicleService;
 import service.vehicle.RegisterVehicleService;
 import service.vehicle.UpdateVehicleService;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 
@@ -63,16 +65,19 @@ public class Main {
         FindRentalService frs = new FindRentalService(rr);
         RentRentalService rrs = new RentRentalService(rr, uvs);
         ReturnRentalService returnRentalService = new ReturnRentalService(rr, uvs);
+        CalculateRentalService calculateRentalService = new CalculateRentalService(rr, frs, fvs, fcs);
 
-        rrs.rent(1, 1,
-                LocalDateTime.of(2023, 9, 11, 14, 44, 45), "Loja 1");
+        rrs.rent(1, 2,
+                LocalDateTime.of(2023, 9, 11, 14, 44, 0), "Loja 1");
 
         System.out.println(frs.findAll());
 
         returnRentalService.returnVehicle(1,
-                LocalDateTime.of(2023, 9, 12, 14, 44, 45), "Loja 2");
+                LocalDateTime.of(2023, 9, 17, 14, 44, 0), "Loja 2");
 
         System.out.println(frs.findAll());
+
+        System.out.println(calculateRentalService.calculateFinalRental(1));
 
     }
 }
