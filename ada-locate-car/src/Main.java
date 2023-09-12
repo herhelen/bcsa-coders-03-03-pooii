@@ -4,11 +4,14 @@ import domain.rental.Rental;
 import domain.vehicle.Vehicle;
 import domain.vehicle.VehicleType;
 import repository.CustomerRepositoryInMemory;
+import repository.RentalRepositoryInMemory;
 import repository.Repository;
 import repository.VehicleRepositoryInMemory;
 import service.customer.FindCustomerService;
 import service.customer.RegisterCustomerService;
 import service.customer.UpdateCustomerService;
+import service.rental.FindRentalService;
+import service.rental.RentRentalService;
 import service.vehicle.FindVehicleService;
 import service.vehicle.RegisterVehicleService;
 import service.vehicle.UpdateVehicleService;
@@ -54,12 +57,18 @@ public class Main {
         System.out.println(ucs.update(1, "Novo Nome 1"));
         System.out.println(fcs.findAll());
 
-        Rental rent = new Rental(1, 1);
-        rent.setStartDateTime(LocalDateTime.of(2023, 9, 11, 14, 44, 45));
-        rent.setStartPlace("Loja 1");
-        System.out.println(rent);
-        rent.setEndDateTime(LocalDateTime.of(2023, 9, 12, 14, 44, 45));
-        rent.setEndPlace("Loja 2");
-        System.out.println(rent);
+        Repository<Rental> rr = new RentalRepositoryInMemory();
+
+        FindRentalService frs = new FindRentalService(rr);
+        RentRentalService rrs = new RentRentalService(rr, uvs);
+
+        rrs.rent(1, 1,
+                LocalDateTime.of(2023, 9, 11, 14, 44, 45), "Loja 1");
+
+        System.out.println(frs.findAll());
+
+//        rent.setEndDateTime(LocalDateTime.of(2023, 9, 12, 14, 44, 45));
+//        rent.setEndPlace("Loja 2");
+//        System.out.println(rent);
     }
 }

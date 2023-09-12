@@ -33,4 +33,10 @@ public class UpdateVehicleService {
         return this.vehicleRepository.update(vehicle);
     }
 
+    public Vehicle update(Integer id, boolean isAvailable) {
+        Vehicle vehicle = this.findVehicleService.findById(id);
+        vehicle.setAvailable(isAvailable);
+
+        return this.vehicleRepository.update(vehicle);
+    }
 }

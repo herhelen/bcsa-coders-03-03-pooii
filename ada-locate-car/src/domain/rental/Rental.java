@@ -16,6 +16,13 @@ public class Rental {
         this.idCustomer = idCustomer;
     }
 
+    public Rental(Integer idVehicle, Integer idCustomer, LocalDateTime startDateTime, String startPlace) {
+        this.idVehicle = idVehicle;
+        this.idCustomer = idCustomer;
+        this.startDateTime = startDateTime;
+        this.startPlace = startPlace;
+    }
+
     public Integer getId() {
         return this.id;
     }
