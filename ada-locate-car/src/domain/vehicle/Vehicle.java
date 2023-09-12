@@ -6,12 +6,14 @@ public class Vehicle {
     private String licensePlate;
     private String maker; //TODO: enum?
     private String year;
+    private boolean isAvailable;
 
-    public Vehicle(VehicleType type, String licensePlate, String maker, String year) {
+    public Vehicle(VehicleType type, String licensePlate, String maker, String year, boolean isAvailable) {
         this.type = type;
         this.licensePlate = licensePlate;
         this.maker = maker;
         this.year = year;
+        this.isAvailable = isAvailable;
     }
 
     public Integer getId() {
@@ -23,15 +25,15 @@ public class Vehicle {
     }
 
     public VehicleType getType() {
-        return type;
+        return this.type;
     }
 
     public String getLicensePlate() {
-        return licensePlate;
+        return this.licensePlate;
     }
 
     public String getMaker() {
-        return maker;
+        return this.maker;
     }
 
     public void setMaker(String maker) {
@@ -39,11 +41,19 @@ public class Vehicle {
     }
 
     public String getYear() {
-        return year;
+        return this.year;
     }
 
     public void setYear(String year) {
         this.year = year;
+    }
+
+    public boolean isAvailable() {
+        return this.isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        this.isAvailable = available;
     }
 
     @Override
@@ -54,6 +64,7 @@ public class Vehicle {
                 ", licensePlate='" + this.licensePlate + '\'' +
                 ", maker='" + this.maker + '\'' +
                 ", year='" + this.year + '\'' +
+                ", isAvailable='" + this.isAvailable + '\'' +
                 "}";
     }
 }

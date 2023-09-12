@@ -17,7 +17,7 @@ public class VehicleService {
 
     public int create(VehicleType type, String licensePlate, String maker, String year) {
         if(this.isUniqueLicensePlate(licensePlate)) {
-            Vehicle car = new Vehicle(type, licensePlate, maker, year);
+            Vehicle car = new Vehicle(type, licensePlate, maker, year, true);
             this.vehicleRepository.create(car);
 
             return car.getId();
