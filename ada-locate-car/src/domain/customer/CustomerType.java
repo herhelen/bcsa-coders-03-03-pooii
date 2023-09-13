@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 
 public enum CustomerType {
 
-    COMPANY(1, "Company", 3, 0.10),
-    PERSON(2, "Person", 5, 0.05);
+    COMPANY(1, "PJ", 3, 0.10),
+    PERSON(2, "PF", 5, 0.05);
 
     private final Integer id;
     private final String type;

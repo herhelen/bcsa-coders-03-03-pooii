@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 
 public enum VehicleType {
 
-    SMALL(1, "Small", new BigDecimal(100.0)),
-    MEDIUM(2, "Medium", new BigDecimal(150.0)),
+    SMALL(1, "Pequeno", new BigDecimal(100.0)),
+    MEDIUM(2, "Médio", new BigDecimal(150.0)),
     SUV(3, "SUV", new BigDecimal(200.0));
 
     private final Integer id;
