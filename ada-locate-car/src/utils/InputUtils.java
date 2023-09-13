@@ -78,7 +78,6 @@ public class InputUtils {
 
             if(input == null || input.isBlank()) {
                 System.out.println("Entrada vazia ou apenas com espaço em branco.");
-                sc.nextLine();
             } else {
                 isInputSuccess = true;
             }

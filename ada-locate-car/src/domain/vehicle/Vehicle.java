@@ -4,7 +4,7 @@ public class Vehicle {
     private Integer id;
     private VehicleType type;
     private String licensePlate;
-    private String maker; //TODO: enum?
+    private String maker;
     private String year;
     private boolean isAvailable;
 

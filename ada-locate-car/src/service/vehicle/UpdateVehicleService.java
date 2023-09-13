@@ -17,19 +17,13 @@ public class UpdateVehicleService {
 
         Vehicle vehicle = this.findVehicleService.findById(id);
 
-        if(year == null || year.isBlank()) { // TODO: Utils?
-            // TODO: Exception?
-        } else {
-            vehicle.setYear(year);
-        }
-
-        if(maker == null || maker.isBlank()) {
-            // TODO: Exception?
-        } else {
+        if(vehicle != null) {
             vehicle.setMaker(maker);
+            vehicle.setYear(year);
+            return this.vehicleRepository.update(vehicle);
         }
 
-        return this.vehicleRepository.update(vehicle);
+        return null;
     }
 
     public Vehicle update(Integer id, boolean isAvailable) {
