@@ -42,6 +42,8 @@ public class MenuController {
 
     private final Scanner scanner;
 
+    private final CustomerController customerController;
+
     public MenuController() {
         this.vehicleRepository = new VehicleRepositoryInMemory();
         this.customerRepository = new CustomerRepositoryInMemory();
@@ -62,6 +64,8 @@ public class MenuController {
                 this.findVehicleService, this.findCustomerService);
 
         this.scanner = new Scanner(System.in);
+
+        this.customerController = new CustomerController(this.registerCustomerService, this.scanner);
     }
 
     public void mainMenu() {
