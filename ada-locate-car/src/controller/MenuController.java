@@ -43,6 +43,7 @@ public class MenuController {
     private final Scanner scanner;
 
     private final CustomerController customerController;
+    private final VehicleController vehicleController;
 
     public MenuController() {
         this.vehicleRepository = new VehicleRepositoryInMemory();
@@ -66,6 +67,7 @@ public class MenuController {
         this.scanner = new Scanner(System.in);
 
         this.customerController = new CustomerController(this.registerCustomerService, this.scanner);
+        this.vehicleController = new VehicleController(this.registerVehicleService, this.scanner);
     }
 
     public void mainMenu() {
@@ -98,7 +100,7 @@ public class MenuController {
         switch (option) {
             case 0 -> System.out.println("Até a próxima!");
             case 1 -> this.customerController.executeRegisterCustomer();
-            case 2 -> System.out.println(option);
+            case 2 -> this.vehicleController.executeRegisterVehicle();
             case 3 -> System.out.println(option);
             case 4 -> System.out.println(option);
             case 5 -> System.out.println(option);

@@ -43,7 +43,6 @@ public class CustomerController {
         ValidationUtils.validadeIsNull(newCustomer,
                 String.format("Não foi possível cadastrar o cliente '%s' com documento '%s', " +
                         "pois já existe um cliente com o mesmo documento", name, document),
-                String.format("Novo cliente '%s' cadastrado com id %d com sucesso!",
-                        newCustomer.getName(), newCustomer.getId()));
+                String.format("Novo cliente '%s' cadastrado com sucesso!", name));
     }
 }
