@@ -8,12 +8,12 @@ import utils.ValidationUtils;
 
 import java.util.Scanner;
 
-public class VehicleController {
+public class RegisterVehicleController {
 
     private final RegisterVehicleService registerVehicleService;
     private final Scanner scanner;
 
-    public VehicleController(RegisterVehicleService registerVehicleService, Scanner scanner) {
+    public RegisterVehicleController(RegisterVehicleService registerVehicleService, Scanner scanner) {
         this.registerVehicleService = registerVehicleService;
         this.scanner = scanner;
     }
