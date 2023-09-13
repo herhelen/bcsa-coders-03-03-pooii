@@ -38,7 +38,22 @@ public class CalculateRentalService {
         double discount = this.getDiscount(customer, days);
         finalRental = finalRental.multiply(BigDecimal.valueOf(1 - discount));
 
-        return finalRental; // TODO: salvar o valor no Rental?
+        return finalRental;
+    }
+
+    public BigDecimal calculateFinalRental(Rental rental) {
+
+        Vehicle vehicle = this.findVehicleService.findById(rental.getIdVehicle());
+        Customer customer = this.findCustomerService.findById(rental.getIdCustomer());
+
+        long days = rentalDurationInDays(rental);
+        BigDecimal finalRental = vehicle.getType().getDailyRate();
+        finalRental = finalRental.multiply(BigDecimal.valueOf(days));
+
+        double discount = this.getDiscount(customer, days);
+        finalRental = finalRental.multiply(BigDecimal.valueOf(1 - discount));
+
+        return finalRental;
     }
 
     // TODO: CalculateRentalDurationService?

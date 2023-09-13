@@ -1,5 +1,6 @@
 package domain.rental;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class Rental {
@@ -10,6 +11,8 @@ public class Rental {
     private LocalDateTime endDateTime;
     private String startPlace;
     private String endPlace;
+    private boolean isReturned;
+    private BigDecimal rentalCost;
 
     public Rental(Integer idVehicle, Integer idCustomer) {
         this.idVehicle = idVehicle;
@@ -21,6 +24,8 @@ public class Rental {
         this.idCustomer = idCustomer;
         this.startDateTime = startDateTime;
         this.startPlace = startPlace;
+        this.isReturned = false;
+        this.rentalCost = null;
     }
 
     public Integer getId() {
@@ -56,7 +61,7 @@ public class Rental {
     }
 
     public String getStartPlace() {
-        return startPlace;
+        return this.startPlace;
     }
 
     public void setStartPlace(String startPlace) {
@@ -64,11 +69,27 @@ public class Rental {
     }
 
     public String getEndPlace() {
-        return endPlace;
+        return this.endPlace;
     }
 
     public void setEndPlace(String endPlace) {
         this.endPlace = endPlace;
+    }
+
+    public boolean isReturned() {
+        return this.isReturned;
+    }
+
+    public void setReturned(boolean returned) {
+        this.isReturned = returned;
+    }
+
+    public BigDecimal getRentalCost() {
+        return rentalCost;
+    }
+
+    public void setRentalCost(BigDecimal rentalCost) {
+        this.rentalCost = rentalCost;
     }
 
     @Override
@@ -81,6 +102,7 @@ public class Rental {
                 ", endDateTime=" + this.endDateTime +
                 ", startPlace='" + this.startPlace + "'" +
                 ", endPlace='" + this.endPlace + "'" +
+                ", isReturned=" + this.isReturned +
                 "}";
     }
 }

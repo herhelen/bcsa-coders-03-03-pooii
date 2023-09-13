@@ -4,6 +4,7 @@ import domain.rental.Rental;
 import repository.Repository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FindRentalService {
 
@@ -17,12 +18,11 @@ public class FindRentalService {
         return this.rentalRepository.findAll();
     }
 
-    public List<Rental> findByCustomer(Integer idCustomer, boolean isReturned) {
-        return this.rentalRepository.findAll(); // TODO:?
-    }
-
-    public List<Rental> findByVehicle(Integer idVehicle, boolean isReturned) {
-        return this.rentalRepository.findAll(); // TODO:?
+    public List<Rental> findUnreturnedRental() {
+        return this.findAll()
+                .stream()
+                .filter(element -> element.isReturned() == false)
+                .collect(Collectors.toList());
     }
 
     public Rental findById(Integer id) {
@@ -31,7 +31,7 @@ public class FindRentalService {
                 return rental;
             }
         }
-        return null; // TODO: Exception?
+        return null;
     }
 
 }
