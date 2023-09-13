@@ -65,18 +65,19 @@ public class MenuController {
     }
 
     public void mainMenu() {
-        int op = -1;
+        int option = -1;
 
-        while (op != 0) {
+        while (option != 0) {
             printMainMenu();
-            op = InputUtils.inputInt(this.scanner);
+            option = InputUtils.inputInt(this.scanner);
+            executeMainMenu(option);
         }
 
         this.scanner.close();
     }
 
     private void printMainMenu() {
-        System.out.println("---------------------------------");
+        System.out.println("------------------------------------------");
         System.out.println("Escolha uma das opções a seguir:");
         System.out.println("1. Cadastrar cliente");
         System.out.println("2. Cadastrar veículo");
@@ -86,7 +87,20 @@ public class MenuController {
         System.out.println("6. Alugar um veículo");
         System.out.println("7. Devolver um veículo");
         System.out.println("0. Sair");
-        System.out.println("---------------------------------");
+        System.out.println("------------------------------------------");
+    }
+
+    private void executeMainMenu(int option) {
+        switch (option) {
+            case 0 -> System.out.println("Até a próxima!");
+            case 1 -> System.out.println(option);
+            case 2 -> System.out.println(option);
+            case 3 -> System.out.println(option);
+            case 4 -> System.out.println(option);
+            case 5 -> System.out.println(option);
+            case 6 -> System.out.println(option);
+            case 7 -> System.out.println(option);
+        };
     }
 
 }
