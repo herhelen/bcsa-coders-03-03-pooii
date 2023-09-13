@@ -27,8 +27,8 @@ public class UpdateCustomerController {
         System.out.println("------------------------------------------");
         System.out.println("Só é possível alterar o nome do cliente.");
 
-        if (this.hasCustomer()) {
-            this.listAllCustomer();
+        if (ListCustomerController.hasCustomer(this.findCustomerService)) {
+            ListCustomerController.listAllCustomer(this.findCustomerService);
 
             Integer id = InputUtils.inputInt(this.scanner, "Escolha o id do cliente cujo nome queira alterar: ");
 
@@ -42,22 +42,5 @@ public class UpdateCustomerController {
         } else {
             System.out.println("Não há clientes cadastrados.");
         }
-    }
-
-    private void listAllCustomer() {
-        System.out.println("Os clientes são:");
-        System.out.println(String.format("%5s %4s %15s %15s", "id", "tipo", "nome", "documento"));
-        for (Customer customer : this.findCustomerService.findAll()) {
-            System.out.println(String.format("%5d %4s %15s %15s",
-                    customer.getId(),
-                    customer.getType().getType(),
-                    customer.getName(),
-                    customer.getDocument()));
-        }
-        System.out.println();
-    }
-
-    private boolean hasCustomer() {
-        return !this.findCustomerService.findAll().isEmpty();
     }
 }

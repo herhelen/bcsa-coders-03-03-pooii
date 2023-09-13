@@ -23,7 +23,7 @@ public class SearchVehicleController {
         System.out.println("------------------------------------------");
         System.out.println("Só é possível buscar veículos por parte da placa.");
 
-        if (this.hasVehicle()) {
+        if (ListVehicleController.hasVehicle(this.findVehicleService)) {
 
             String partialLicensePlate = InputUtils.inputString(this.scanner, "Digite parte da placa: ");
 
@@ -49,9 +49,5 @@ public class SearchVehicleController {
         } else {
             System.out.println("Não há veículos cadastrados.");
         }
-    }
-
-    private boolean hasVehicle() {
-        return !this.findVehicleService.findAll().isEmpty();
     }
 }

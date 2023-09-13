@@ -27,8 +27,8 @@ public class UpdateVehicleController {
         System.out.println("------------------------------------------");
         System.out.println("Só é possível alterar o fabricante e o ano de fabricação do veículo.");
 
-        if (this.hasVehicle()) {
-            this.listAllVehicle();
+        if (ListVehicleController.hasVehicle(this.findVehicleService)) {
+            ListVehicleController.listAllVehicle(this.findVehicleService);
 
             Integer id = InputUtils.inputInt(this.scanner, "Escolha o id do veículo cujo dado queira alterar: ");
 
@@ -44,23 +44,5 @@ public class UpdateVehicleController {
         } else {
             System.out.println("Não há veículos cadastrados.");
         }
-    }
-
-    private void listAllVehicle() {
-        System.out.println("Os veículos são:");
-        System.out.println(String.format("%5s %8s %15s %15s %4s", "id", "tipo", "placa", "fabricante", "ano"));
-        for (Vehicle vehicle : this.findVehicleService.findAll()) {
-            System.out.println(String.format("%5d %8s %15s %15s %4s",
-                    vehicle.getId(),
-                    vehicle.getType().getType(),
-                    vehicle.getLicensePlate(),
-                    vehicle.getMaker(),
-                    vehicle.getYear()));
-        }
-        System.out.println();
-    }
-
-    private boolean hasVehicle() {
-        return !this.findVehicleService.findAll().isEmpty();
     }
 }
