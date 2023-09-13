@@ -3,6 +3,7 @@ package controller;
 import controller.customer.RegisterCustomerController;
 import controller.customer.UpdateCustomerController;
 import controller.vehicle.RegisterVehicleController;
+import controller.vehicle.SearchVehicleController;
 import controller.vehicle.UpdateVehicleController;
 import domain.customer.Customer;
 import domain.rental.Rental;
@@ -50,6 +51,7 @@ public class MenuController {
     private final UpdateCustomerController updateCustomerController;
 
     private final RegisterVehicleController registerVehicleController;
+    private final SearchVehicleController searchVehicleController;
     private final UpdateVehicleController updateVehicleController;
 
     public MenuController() {
@@ -78,6 +80,7 @@ public class MenuController {
                 this.updateCustomerService, this.scanner);
 
         this.registerVehicleController = new RegisterVehicleController(this.registerVehicleService, this.scanner);
+        this.searchVehicleController = new SearchVehicleController(this.findVehicleService, this.scanner);
         this.updateVehicleController = new UpdateVehicleController(this.findVehicleService,
                 this.updateVehicleService, this.scanner);
     }
@@ -115,7 +118,7 @@ public class MenuController {
             case 2 -> this.registerVehicleController.executeRegisterVehicle();
             case 3 -> this.updateCustomerController.executeUpdateCustomer();
             case 4 -> this.updateVehicleController.executeUpdateVehicle();
-            case 5 -> System.out.println(option);
+            case 5 -> this.searchVehicleController.executeSearchVehicle();
             case 6 -> System.out.println(option);
             case 7 -> System.out.println(option);
         }
