@@ -2,17 +2,23 @@ package domain.customer;
 
 public enum CustomerType {
 
-    COMPANY("Company", 3, 0.10),
-    PERSON("Person", 5, 0.05);
+    COMPANY(1, "Company", 3, 0.10),
+    PERSON(2, "Person", 5, 0.05);
 
+    private final Integer id;
     private final String type;
     private final Integer minDaysForDiscount;
     private final Double discountPercentage;
 
-    CustomerType(String type, Integer minDaysForDiscount, Double discountPercentage) {
+    CustomerType(Integer id, String type, Integer minDaysForDiscount, Double discountPercentage) {
+        this.id = id;
         this.type = type;
         this.minDaysForDiscount = minDaysForDiscount;
         this.discountPercentage = discountPercentage;
+    }
+
+    public Integer getId() {
+        return this.id;
     }
 
     public String getType() {
@@ -25,6 +31,15 @@ public enum CustomerType {
 
     public Double getDiscountPercentage() {
         return this.discountPercentage;
+    }
+
+    public static CustomerType idToEnum(int id) {
+        for(CustomerType type : values()) {
+            if(type.getId() == id) {
+                return type;
+            }
+        }
+        return null; // TODO: Exception?
     }
 
     @Override
