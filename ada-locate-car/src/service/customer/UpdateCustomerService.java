@@ -17,12 +17,11 @@ public class UpdateCustomerService {
 
         Customer customer = this.findCustomerService.findById(id);
 
-        if(name == null || name.isBlank()) { // TODO: Utils?
-            // TODO: Exception?
-        } else {
+        if(customer != null) {
             customer.setName(name);
+            return this.customerRepository.update(customer);
         }
 
-        return this.customerRepository.update(customer);
+        return null;
     }
 }
