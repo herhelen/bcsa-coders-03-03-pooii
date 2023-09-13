@@ -27,17 +27,21 @@ public class UpdateCustomerController {
         System.out.println("------------------------------------------");
         System.out.println("Só é possível alterar o nome do cliente.");
 
-        this.listAllCustomer();
+        if (this.hasCustomer()) {
+            this.listAllCustomer();
 
-        Integer id = InputUtils.inputInt(this.scanner, "Escolha o id do cliente cujo nome queira alterar: ");
+            Integer id = InputUtils.inputInt(this.scanner, "Escolha o id do cliente cujo nome queira alterar: ");
 
-        String name = InputUtils.inputString(this.scanner, "Digite o nome novo do cliente: ");
+            String name = InputUtils.inputString(this.scanner, "Digite o nome novo do cliente: ");
 
-        Customer updatedCustomer = this.updateCustomerService.update(id, name);
+            Customer updatedCustomer = this.updateCustomerService.update(id, name);
 
-        ValidationUtils.validadeIsNull(updatedCustomer,
-                String.format("Não foi possível alterar o cliente com id %d inválido.", id),
-                String.format("O nome do cliente '%s' alterado com sucesso!", name));
+            ValidationUtils.validadeIsNull(updatedCustomer,
+                    String.format("Não foi possível alterar o cliente com id %d inválido.", id),
+                    String.format("O nome do cliente '%s' alterado com sucesso!", name));
+        } else {
+            System.out.println("Não há clientes cadastrados.");
+        }
     }
 
     private void listAllCustomer() {
@@ -51,5 +55,9 @@ public class UpdateCustomerController {
                     customer.getDocument()));
         }
         System.out.println();
+    }
+
+    private boolean hasCustomer() {
+        return !this.findCustomerService.findAll().isEmpty();
     }
 }
