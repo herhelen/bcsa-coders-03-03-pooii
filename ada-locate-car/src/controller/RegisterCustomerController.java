@@ -8,12 +8,12 @@ import utils.ValidationUtils;
 
 import java.util.Scanner;
 
-public class CustomerController {
+public class RegisterCustomerController {
 
     private final RegisterCustomerService registerCustomerService;
     private final Scanner scanner;
 
-    public CustomerController(RegisterCustomerService registerCustomerService, Scanner scanner) {
+    public RegisterCustomerController(RegisterCustomerService registerCustomerService, Scanner scanner) {
         this.registerCustomerService = registerCustomerService;
         this.scanner = scanner;
     }
