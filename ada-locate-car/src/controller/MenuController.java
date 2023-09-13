@@ -97,7 +97,7 @@ public class MenuController {
     private void executeMainMenu(int option) {
         switch (option) {
             case 0 -> System.out.println("Até a próxima!");
-            case 1 -> System.out.println(option);
+            case 1 -> this.customerController.executeRegisterCustomer();
             case 2 -> System.out.println(option);
             case 3 -> System.out.println(option);
             case 4 -> System.out.println(option);

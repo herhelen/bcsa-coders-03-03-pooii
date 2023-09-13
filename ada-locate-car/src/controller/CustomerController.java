@@ -4,6 +4,7 @@ import domain.customer.Customer;
 import domain.customer.CustomerType;
 import service.customer.RegisterCustomerService;
 import utils.InputUtils;
+import utils.ValidationUtils;
 
 import java.util.Scanner;
 
@@ -23,21 +24,26 @@ public class CustomerController {
         System.out.println("------------------------------------------");
 
         System.out.println("Os tipos de clientes são:");
-        for (CustomerType type: CustomerType.values()) {
-            System.out.println(String.format("%d - %s", type.getId(), type.getType()));
+        for (CustomerType cType : CustomerType.values()) {
+            System.out.println(String.format("%d - %s", cType.getId(), cType.getType()));
         }
-        int idCustomerType =
-                InputUtils.inputInt(this.scanner, "Escolha o tipo de cliente que deseja cadastrar: ");
+
+        Integer idCustomerType = InputUtils.inputInt(this.scanner,
+                "Escolha o tipo de cliente que deseja cadastrar: ",
+                CustomerType.ids(),
+                "Tipo de cliente inválido.");
         CustomerType type = CustomerType.idToEnum(idCustomerType);
 
         String document = InputUtils.inputString(this.scanner, "Digite o documento do cliente: ");
 
         String name = InputUtils.inputString(this.scanner, "Digite o nome do cliente: ");
 
-        // TODO: documento é único! => Exception!
         Customer newCustomer = this.registerCustomerService.register(type, document, name);
 
-        System.out.println(String.format("Novo cliente '%s' cadastrado com id %d com sucesso!",
-                newCustomer.getName(), newCustomer.getId()));
+        ValidationUtils.validadeIsNull(newCustomer,
+                String.format("Não foi possível cadastrar o cliente '%s' com documento '%s', " +
+                        "pois já existe um cliente com o mesmo documento", name, document),
+                String.format("Novo cliente '%s' cadastrado com id %d com sucesso!",
+                        newCustomer.getName(), newCustomer.getId()));
     }
 }

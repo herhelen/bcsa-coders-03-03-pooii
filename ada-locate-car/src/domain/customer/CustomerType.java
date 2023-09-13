@@ -1,5 +1,9 @@
 package domain.customer;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public enum CustomerType {
 
     COMPANY(1, "Company", 3, 0.10),
@@ -39,7 +43,13 @@ public enum CustomerType {
                 return type;
             }
         }
-        return null; // TODO: Exception?
+        return null;
+    }
+
+    public static List<Integer> ids() {
+        return Arrays.stream(values())
+                .map(element -> element.getId())
+                .collect(Collectors.toList());
     }
 
     @Override

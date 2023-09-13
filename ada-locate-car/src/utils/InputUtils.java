@@ -1,5 +1,6 @@
 package utils;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class InputUtils {
@@ -33,6 +34,31 @@ public class InputUtils {
                 input = sc.nextInt();
                 sc.nextLine();
                 isInputSuccess = true;
+            } else {
+                System.out.println("Entrada inválida. O valor esperado é um número inteiro.");
+                sc.nextLine();
+            }
+        }
+
+        return input;
+    }
+
+    public static Integer inputInt(Scanner sc, String msg, List<Integer> validValues, String invalidValueMsg) {
+        boolean isInputSuccess = false;
+        Integer input = null;
+
+        while(!isInputSuccess) {
+            System.out.print(msg);
+
+            if(sc.hasNextInt()) {
+                input = sc.nextInt();
+                sc.nextLine();
+
+                if (validValues.contains(input)) {
+                    isInputSuccess = true;
+                } else {
+                    System.out.println(invalidValueMsg);
+                }
             } else {
                 System.out.println("Entrada inválida. O valor esperado é um número inteiro.");
                 sc.nextLine();
