@@ -2,6 +2,7 @@ package controller;
 
 import controller.customer.RegisterCustomerController;
 import controller.customer.UpdateCustomerController;
+import controller.rental.RentRentalController;
 import controller.vehicle.RegisterVehicleController;
 import controller.vehicle.SearchVehicleController;
 import controller.vehicle.UpdateVehicleController;
@@ -54,6 +55,8 @@ public class MenuController {
     private final SearchVehicleController searchVehicleController;
     private final UpdateVehicleController updateVehicleController;
 
+    private final RentRentalController rentRentalController;
+
     public MenuController() {
         this.vehicleRepository = new VehicleRepositoryInMemory();
         this.customerRepository = new CustomerRepositoryInMemory();
@@ -68,7 +71,8 @@ public class MenuController {
         this.updateCustomerService = new UpdateCustomerService(this.customerRepository, this.findCustomerService);
 
         this.findRentalService = new FindRentalService(this.rentalRepository);
-        this.rentRentalService = new RentRentalService(this.rentalRepository, this.updateVehicleService);
+        this.rentRentalService = new RentRentalService(this.rentalRepository, this.findVehicleService,
+                this.updateVehicleService);
         this.returnRentalService = new ReturnRentalService(this.rentalRepository, this.updateVehicleService);
         this.calculateRentalService = new CalculateRentalService(this.rentalRepository, this.findRentalService,
                 this.findVehicleService, this.findCustomerService);
@@ -83,6 +87,9 @@ public class MenuController {
         this.searchVehicleController = new SearchVehicleController(this.findVehicleService, this.scanner);
         this.updateVehicleController = new UpdateVehicleController(this.findVehicleService,
                 this.updateVehicleService, this.scanner);
+
+        this.rentRentalController = new RentRentalController(this.findCustomerService, this.findVehicleService,
+                this.rentRentalService, this.scanner);
     }
 
     public void mainMenu() {
@@ -119,7 +126,7 @@ public class MenuController {
             case 3 -> this.updateCustomerController.executeUpdateCustomer();
             case 4 -> this.updateVehicleController.executeUpdateVehicle();
             case 5 -> this.searchVehicleController.executeSearchVehicle();
-            case 6 -> System.out.println(option);
+            case 6 -> this.rentRentalController.executeRent();
             case 7 -> System.out.println(option);
         }
     }

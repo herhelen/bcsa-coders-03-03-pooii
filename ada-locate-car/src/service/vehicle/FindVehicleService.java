@@ -19,12 +19,18 @@ public class FindVehicleService {
     }
 
     public List<Vehicle> findByPartialLicensePlate(String partialLicensePlate) {
-        // TODO: verificar se é null partialLicensePlate
         List temp = this.findAll()
                 .stream()
                 .filter(element -> element.getLicensePlate().toLowerCase().contains(partialLicensePlate.toLowerCase()))
                 .collect(Collectors.toList());
         return temp;
+    }
+
+    public List<Vehicle> findAvailableVehicle() {
+        return this.findAll()
+                .stream()
+                .filter(element -> element.isAvailable() == true)
+                .collect(Collectors.toList());
     }
 
     public Vehicle findById(Integer id) {
@@ -33,6 +39,6 @@ public class FindVehicleService {
                 return vehicle;
             }
         }
-        return null; // TODO: Exception?
+        return null;
     }
 }
