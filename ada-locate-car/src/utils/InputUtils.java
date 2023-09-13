@@ -1,5 +1,9 @@
 package utils;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -85,4 +89,26 @@ public class InputUtils {
 
         return input;
     }
+
+    public static LocalDateTime inputDateTime(Scanner sc, String datetimePattern, String msg, String invalidValueMsg) {
+        boolean isParsingSuccess = false;
+        String input = null;
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(datetimePattern);
+
+        LocalDateTime dateTime = null;
+        while (!isParsingSuccess) {
+            try {
+                System.out.println(msg);
+                input = sc.nextLine();
+                dateTime = LocalDateTime.parse(input, formatter);
+                isParsingSuccess = true;
+            } catch (DateTimeParseException e) {
+                System.out.println(invalidValueMsg);
+            }
+        }
+
+        return dateTime;
+    }
+
 }
