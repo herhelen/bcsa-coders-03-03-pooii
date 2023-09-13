@@ -1,5 +1,9 @@
 package controller;
 
+import controller.customer.RegisterCustomerController;
+import controller.customer.UpdateCustomerController;
+import controller.vehicle.RegisterVehicleController;
+import controller.vehicle.UpdateVehicleController;
 import domain.customer.Customer;
 import domain.rental.Rental;
 import domain.vehicle.Vehicle;

@@ -1,4 +1,4 @@
-package controller;
+package controller.vehicle;
 
 import domain.vehicle.Vehicle;
 import domain.vehicle.VehicleType;

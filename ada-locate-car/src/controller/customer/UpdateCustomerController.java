@@ -1,4 +1,4 @@
-package controller;
+package controller.customer;
 
 import domain.customer.Customer;
 import service.customer.FindCustomerService;
