@@ -23,7 +23,7 @@ public class RegisterCustomerService {
             return this.customerRepository.create(customer);
         }
 
-        return null; //TODO: Exception?
+        return null;
     }
 
     private boolean isUniqueDocument(String document) {

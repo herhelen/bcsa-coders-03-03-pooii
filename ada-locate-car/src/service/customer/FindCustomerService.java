@@ -23,6 +23,6 @@ public class FindCustomerService {
                 return customer;
             }
         }
-        return null; // TODO: Exception?
+        return null;
     }
 }

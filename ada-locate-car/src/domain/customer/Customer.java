@@ -1,7 +1,7 @@
 package domain.customer;
 
 public class Customer {
-    private Integer id; // TODO: Integer ou int?
+    private Integer id;
     private CustomerType type;
     private String document;
     private String name;

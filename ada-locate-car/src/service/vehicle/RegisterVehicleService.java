@@ -23,7 +23,7 @@ public class RegisterVehicleService {
             return this.vehicleRepository.create(car);
         }
 
-        return null; //TODO: Exception?
+        return null;
     }
 
     private boolean isUniqueLicensePlate(String licensePlate) {
