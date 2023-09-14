@@ -9,4 +9,12 @@ public class ValidationUtils {
             System.out.println(isNotNullMsg);
         }
     }
+
+    public static void validadeIsNull(Object object, String isNullMsg) {
+        if(object == null) {
+            System.out.println(isNullMsg);
+        } else {
+            System.out.println(object);
+        }
+    }
 }

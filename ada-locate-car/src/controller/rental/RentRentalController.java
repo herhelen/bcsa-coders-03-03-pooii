@@ -61,7 +61,7 @@ public class RentRentalController {
                     String.format("Não foi possível alugar o veículo com id %d.", idVehicle),
                     String.format("O alguel do veículo feito com sucesso."));
         } else {
-            System.out.println("Verifique se há clientes e veículos cadastrados.");
+            System.out.println("Verifique se há clientes e veículos cadastrados. Ou se há veículos disponíveis");
         }
     }
 }

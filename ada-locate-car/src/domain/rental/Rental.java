@@ -103,6 +103,7 @@ public class Rental {
                 ", startPlace='" + this.startPlace + "'" +
                 ", endPlace='" + this.endPlace + "'" +
                 ", isReturned=" + this.isReturned +
+                ", rentalCost=" + this.rentalCost +
                 "}";
     }
 }

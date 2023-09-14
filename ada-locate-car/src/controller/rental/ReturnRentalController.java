@@ -57,8 +57,7 @@ public class ReturnRentalController {
             Rental returnedRental = this.returnRentalService.returnVehicle(idRental, endDateTime, endPlace);
 
             ValidationUtils.validadeIsNull(returnedRental,
-                    String.format("Não foi possível devolver o veículo com alguel id %d.", idRental),
-                    String.format("O veículo devolvido com sucesso."));
+                    String.format("Não foi possível devolver o veículo com alguel id %d.", idRental));
         } else {
             System.out.println("Não há veículos alugados a serem devolvidos.");
         }
