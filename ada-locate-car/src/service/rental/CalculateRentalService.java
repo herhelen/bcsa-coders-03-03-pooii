@@ -28,17 +28,8 @@ public class CalculateRentalService {
     public BigDecimal calculateFinalRental(Integer idRental) {
 
         Rental rental = this.findRentalService.findById(idRental);
-        Vehicle vehicle = this.findVehicleService.findById(rental.getIdVehicle());
-        Customer customer = this.findCustomerService.findById(rental.getIdCustomer());
 
-        long days = rentalDurationInDays(rental);
-        BigDecimal finalRental = vehicle.getType().getDailyRate();
-        finalRental = finalRental.multiply(BigDecimal.valueOf(days));
-        
-        double discount = this.getDiscount(customer, days);
-        finalRental = finalRental.multiply(BigDecimal.valueOf(1 - discount));
-
-        return finalRental;
+        return this.calculateFinalRental(rental);
     }
 
     public BigDecimal calculateFinalRental(Rental rental) {
